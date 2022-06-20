@@ -1,0 +1,127 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background-color: #DCF1F5;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.contenedor {
+    width: 90%;
+    margin: 20px auto;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "header header header"
+                         "article article aside"
+                         "widget-1 widget-2 aside"
+                         "footer footer footer";
+}
+
+.contenedor .header{
+    background-color: #5F8DD2;
+    color: #D6DBDC;
+    text-align: center;
+    padding: 10px 0px 0px;
+    border-radius: 10px;
+    grid-area: header;
+}
+
+.contenedor .header .header__nav ul{
+    display: flex;
+    background-color: #1B2F46;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 5px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.contenedor .article{
+    grid-area: article;
+    min-height: 100px;
+    text-align: center;
+    justify-content: center;
+}
+
+.contenedor .aside {
+    background-color: darkslategrey;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    border-radius: 10px;
+    grid-area: aside; 
+}
+
+.contenedor .widget-1,
+.contenedor .widget-2{
+    background-color: #5F8DD2;
+    color: #D6DBDC;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.contenedor .widget-1 {
+    grid-area: widget-1;
+}
+
+.contenedor .widget-2 {
+    grid-area: widget-2;
+}
+
+.contenedor .footer{
+    grid-area: footer;
+}
+
+.contenedor .footer .footer__div ul{
+    display: flex;
+    background-color: #1B2F46;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 10px;
+    border-radius: 10px;
+
+}
+
+.contenedor .header a,
+.contenedor .footer a {
+    color: #D6DBDC;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+    .contenedor {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "header    header"
+                             "article   article"
+                             "aside     aside"
+                             "widget-1  widget-2"
+                             "footer    footer";
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .contenedor {
+        grid-template-columns: 1fr;
+        grid-template-areas: "header"
+                             "article"
+                             "aside"
+                             "widget-1"
+                             "widget-2"
+                             "footer";
+    }
+
+    .contenedor .header .header__nav ul{
+        flex-direction: column;
+    }
+
+}
